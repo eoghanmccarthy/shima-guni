@@ -1,26 +1,58 @@
+import { useCallback, useState, useEffect } from "react";
 import type { Route } from "./+types/home";
-import { MapContainer, TileLayer, ZoomControl, useMap } from "react-leaflet";
+import { MapContainer, TileLayer, ZoomControl, useMapEvents, useMap } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
+
 import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
 import { AppSidebar } from "@/components/app-sidebar";
-import { useCallback, useState } from "react";
+import { CoordDisplay } from "@/components/coord-display";
 
-// MapController component to handle map operations
-function MapController({
-    coordinates,
-    zoom
+function MapInteractionHandler({
+    onCoordChange,
+    targetLocation
 }: {
-    coordinates?: [number, number];
-    zoom?: number;
+    onCoordChange: (coords: [number, number] | null) => void;
+    targetLocation?: { coordinates: [number, number]; zoom?: number; }
 }) {
     const map = useMap();
+    const [lastCoords, setLastCoords] = useState<[number, number] | null>(null);
 
-    if (coordinates && zoom) {
-        map.flyTo(coordinates, zoom, {
-            duration: 1,
-            easeLinearity: 0.5
-        });
-    }
+    useMapEvents({
+        mousemove: (e) => {
+            const coords: [number, number] = [e.latlng.lat, e.latlng.lng];
+            setLastCoords(coords);
+            onCoordChange(coords);
+        },
+        mouseout: () => {
+            setLastCoords(null);
+            onCoordChange(null);
+        }
+    });
+
+    // Handle map navigation when targetLocation changes
+    useEffect(() => {
+        if (targetLocation) {
+            map.flyTo(targetLocation.coordinates, targetLocation.zoom || 12, {
+                duration: 1,
+                easeLinearity: 0.5
+            });
+        }
+    }, [map, targetLocation]);
+
+    // Add keyboard shortcut for copying coordinates
+    useEffect(() => {
+        const handleKeyPress = (e: KeyboardEvent) => {
+            if (e.key.toLowerCase() === 'c' && lastCoords) {
+                const coordString = `${lastCoords[0].toFixed(4)}, ${lastCoords[1].toFixed(4)}`;
+                navigator.clipboard.writeText(coordString).then(() => {
+                    console.log('Coordinates copied:', coordString);
+                });
+            }
+        };
+
+        window.addEventListener('keydown', handleKeyPress);
+        return () => window.removeEventListener('keydown', handleKeyPress);
+    }, [lastCoords]);
 
     return null;
 }
@@ -38,6 +70,7 @@ export default function Home({ loaderData }: Route.ComponentProps) {
         coordinates: [number, number];
         zoom?: number;
     } | null>(null);
+    const [mouseCoords, setMouseCoords] = useState<[number, number] | null>(null);
 
     const handleIslandSelect = useCallback((coordinates: [number, number], zoom?: number) => {
         setSelectedLocation({ coordinates, zoom: zoom || INITIAL_ZOOM });
@@ -66,13 +99,12 @@ export default function Home({ loaderData }: Route.ComponentProps) {
                             attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
                             url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
                         />
-                        {selectedLocation && (
-                            <MapController
-                                coordinates={selectedLocation.coordinates}
-                                zoom={selectedLocation.zoom}
-                            />
-                        )}
+                        <MapInteractionHandler
+                            onCoordChange={setMouseCoords}
+                            targetLocation={selectedLocation || undefined}
+                        />
                     </MapContainer>
+                    <CoordDisplay coordinates={mouseCoords} />
                 </main>
             </div>
         </SidebarProvider>
