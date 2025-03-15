@@ -1,0 +1,57 @@
+id,name,native_name,latitude,longitude,group,description,zoom,area,population,mainland_distance
+aogashima,Aogashima,青ヶ島,32.4574,139.7637,Izu Islands,Volcanic island with a village inside the crater,14,5.98,170,358
+yakushima,Yakushima,屋久島,30.3586,130.5286,Osumi Islands,Ancient cedar forests and inspiration for Princess Mononoke,11,504.88,12900,135
+gunkanjima,Gunkanjima,軍艦島,32.6278,129.7385,Nagasaki Islands,Abandoned concrete island former coal mining facility,16,0.063,0,19
+tashirojima,Tashirojima,田代島,38.3008,141.4239,Miyagi Islands,Famous cat island with more cats than people,14,3.14,80,15
+naoshima,Naoshima,直島,34.4603,133.9956,Seto Inland Sea,Famous art island with Benesse House Museum,13,14.22,3000,3
+iriomote,Iriomote,西表島,24.3377,123.8207,Yaeyama Islands,Jungle island home to the rare Iriomote wildcat,11,289.27,2400,1200
+sado,Sado,佐渡島,38.0157,138.3687,Niigata Islands,Historic gold mines and traditional performing arts,11,855.26,51000,45
+ojika,Ojika,小値賀島,33.1917,129.0550,Goto Islands,Preserved traditional Japanese landscape and architecture,13,13.31,2100,73
+miyajima,Miyajima,宮島,34.2963,132.3196,Inland Sea Islands,Famous for its floating torii gate and wild deer,14,30.39,1600,2
+shimojishima,Shimojishima,下地島,24.8294,125.1825,Miyako Islands,Known for its perfect circular airport and blue caves,13,9.54,1400,980
+hachijojima,Hachijojima,八丈島,33.1147,139.7967,Izu Islands,Tropical paradise with hot springs and diving spots,12,69.11,7200,287
+koshikijima,Koshikijima,甑島,31.8353,129.8853,Kagoshima Islands,Three connected islands with dramatic coastal scenery,12,116.98,4300,32
+ogijima,Ogijima,男木島,34.4147,134.0094,Art Islands,Small artistic island with maze-like village streets,15,1.36,150,4
+zamami,Zamami,座間味島,26.2280,127.3030,Kerama Islands,Famous for whale watching and pristine beaches,13,6.77,900,40
+okinoshima,Okinoshima,沖ノ島,34.2444,130.1055,Sacred Islands,Sacred island where women are forbidden to enter,14,0.97,0,60
+ainoshima,Ainoshima,相島,33.7608,130.3693,Fukuoka Islands,Known for its cat population and ancient tombs,14,1.25,280,8
+mikurajima,Mikurajima,御蔵島,33.8794,139.6122,Izu Islands,Famous for swimming with wild dolphins,13,20.58,300,200
+taketomi,Taketomi,竹富島,24.3256,124.0887,Yaeyama Islands,Traditional Ryukyu village with star sand beaches,14,5.42,360,1250
+megijima,Megijima,女木島,34.3889,134.0139,Art Islands,Home to legendary ogre caves and art installations,14,2.66,160,4
+kuroshima,Kuroshima,黒島,24.2431,123.9994,Yaeyama Islands,Flat coral island known for grazing water buffalo,13,10.02,210,1180
+shodoshima,Shodoshima,小豆島,34.4935,134.2639,Seto Inland Sea,Known for olive groves and soy sauce production,12,153.30,28000,10
+inujima,Inujima,犬島,34.5632,134.1017,Seto Inland Sea,Art site with former copper refinery,15,0.54,47,3
+teshima,Teshima,豊島,34.4802,134.0767,Seto Inland Sea,Home to the Teshima Art Museum,14,14.49,800,4
+oshima-hoyo,Oshima,大島,34.4072,134.1065,Seto Inland Sea,Former leprosy sanatorium now historical site,14,7.69,150,8
+awashima,Awashima,粟島,38.4672,139.2547,Niigata Islands,Remote island with dramatic cliffs and traditional fishing culture,13,9.86,350,35
+manabeshima,Manabeshima,真鍋島,34.3562,133.5800,Seto Inland Sea,Traditional fishing village with many cats,15,1.37,180,8
+ibukijima,Ibukijima,伊吹島,34.1299,133.5345,Seto Inland Sea,Famous for sardine fishing industry,14,0.98,300,6
+honjima,Honjima,本島,34.3853,133.7731,Seto Inland Sea,Historical shipbuilding center,14,7.81,450,7
+kitagi,Kitagi,北木島,34.3838,133.5389,Seto Inland Sea,Known for granite quarrying history,14,5.62,100,12
+ogi,Ogi,男木島,34.4260,134.0601,Seto Inland Sea,Small fishing village with lighthouse,15,1.36,150,4
+sanagishima,Sanagishima,佐柳島,34.3426,133.6247,Seto Inland Sea,Remote island with preserved traditions,14,2.12,140,19
+takamijima,Takamijima,高見島,34.3149,133.6734,Seto Inland Sea,Small fishing community with terraced fields,15,1.98,90,15
+innoshima,Innoshima,因島,34.3175,133.1744,Seto Inland Sea,Former shipbuilding center with citrus groves,13,33.58,20000,2
+mukaishima,Mukaishima,向島,34.3847,133.2024,Seto Inland Sea,Known for shipbuilding and citrus,14,22.35,18000,1
+ikuchijima,Ikuchijima,生口島,34.2879,133.1079,Seto Inland Sea,Famous for Kosanji Temple and citrus,14,32.65,7200,4
+omishima,Omishima,大三島,34.2449,133.0151,Seto Inland Sea,Home to important Oyamazumi Shrine,13,43.32,5500,3
+osaki-shimojima,Osaki-Shimojima,大崎下島,34.2318,132.8903,Seto Inland Sea,Known for its citrus orchards and historical salt production,13,37.79,6500,2
+rishiri,Rishiri,利尻島,45.1782,141.2395,Hokkaido Islands,Cone-shaped volcanic island known as the Mount Fuji of the Sea,12,182.1,4800,19
+rebun,Rebun,礼文島,45.3683,141.0246,Hokkaido Islands,Famous for unique alpine flowers and hiking trails,12,81.3,2600,23
+okushiri,Okushiri,奥尻島,42.1714,139.4139,Hokkaido Islands,Known for seafood and recovered from 1993 tsunami,12,142.9,2800,16
+teuri,Teuri,天売島,44.4260,141.3163,Hokkaido Islands,Bird sanctuary with millions of seabirds nesting,14,5.5,280,27
+yagishiri,Yagishiri,焼尻島,44.4367,141.4083,Hokkaido Islands,Known for rare native horses and wildflowers,14,7.6,220,24
+todojima,Todo,藻琴島,45.4769,140.9668,Hokkaido Islands,Sea lion colony and historic lighthouse,15,1.1,0,25
+daikokujima,Daikokujima,大黒島,42.9548,144.8724,Hokkaido Islands,Important seabird breeding ground in Akkeshi Bay,14,1.2,0,3
+bentenjima,Bentenjima,弁天島,43.3426,145.5767,Hokkaido Islands,Sacred island in Nemuro with torii gate,15,0.4,0,1
+chichijima,Chichijima,父島,27.0721,142.2101,Ogasawara Islands,Main inhabited island with unique endemic species,13,23.8,2000,1000
+hahajima,Hahajima,母島,26.6577,142.1574,Ogasawara Islands,Second largest inhabited island with pristine forests,12,20.8,450,1050
+mukojima,Mukojima,聟島,27.6801,142.1389,Ogasawara Islands,Uninhabited island with rare bird colonies,14,2.57,0,1050
+anijima,Anijima,兄島,27.1211,142.2069,Ogasawara Islands,Protected wilderness with endemic plants,14,7.87,0,1000
+otoutojima,Otoutojima,弟島,27.1673,142.1920,Ogasawara Islands,Nature reserve with unique insect species,14,5.20,0,1000
+meijima,Meijima,姪島,27.0733,142.1844,Ogasawara Islands,Small volcanic island with dramatic cliffs,15,1.58,0,990
+minamijima,Minamijima,南島,27.0383,142.1754,Ogasawara Islands,Famous for limestone formations and rare fauna,15,0.33,0,995
+kitanoshima,Kitanoshima,北ノ島,27.7181,142.1002,Ogasawara Islands,Northern volcanic islet with seabird colonies,15,0.52,0,1060
+nakodojima,Nakodojima,媒島,27.6283,142.1817,Ogasawara Islands,Historic whaling station site,14,1.37,0,1030
+yomejima,Yomejima,嫁島,27.4892,142.1736,Ogasawara Islands,Steep-cliffed island with rare plant species,15,0.85,0,1020
+iwojima,Iwojima,硫黄島,24.7822,141.3176,Ogasawara Islands,Historic WWII battlefield with active volcanoes,13,21.0,0,1250

@@ -3,6 +3,8 @@ import type { Route } from "./+types/home";
 import { MapContainer, TileLayer, ZoomControl, useMapEvents, useMap } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 
+import type { Island } from "@/data/islands"
+
 import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
 import { AppSidebar } from "@/components/app-sidebar";
 import { CoordDisplay } from "@/components/coord-display";
@@ -72,8 +74,8 @@ export default function Home({ loaderData }: Route.ComponentProps) {
     } | null>(null);
     const [mouseCoords, setMouseCoords] = useState<[number, number] | null>(null);
 
-    const handleIslandSelect = useCallback((coordinates: [number, number], zoom?: number) => {
-        setSelectedLocation({ coordinates, zoom: zoom || INITIAL_ZOOM });
+    const handleIslandSelect = useCallback((island: Island) => {
+        setSelectedLocation({ coordinates: island.coordinates, zoom: island.zoom || INITIAL_ZOOM });
     }, []);
 
     return (
@@ -82,7 +84,7 @@ export default function Home({ loaderData }: Route.ComponentProps) {
             "--sidebar-width-mobile": "20rem",
         } as React.CSSProperties}>
             <div className="w-screen h-screen flex">
-                <AppSidebar onIslandSelect={handleIslandSelect} />
+                <AppSidebar onSelect={handleIslandSelect} />
                 <main className="flex-1 relative">
                     <div className="absolute top-4 left-4 z-[1000]">
                         <SidebarTrigger />

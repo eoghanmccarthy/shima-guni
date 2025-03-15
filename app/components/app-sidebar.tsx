@@ -1,4 +1,6 @@
+import { useEffect, useState } from "react"
 import { Map, Layers, Info, Menu, MapPin, Search, Square, Users, Compass } from "lucide-react"
+
 import {
     Sidebar,
     SidebarContent,
@@ -8,24 +10,31 @@ import {
     SidebarHeader,
     SidebarInput,
 } from "@/components/ui/sidebar"
-import { islands } from "@/data/islands"
 import { ScrollArea } from "@/components/ui/scroll-area"
-import { useState } from "react"
+
+import type { Island } from "@/data/islands"
+import { islandsPromise } from "@/data/islands"
 
 interface AppSidebarProps {
-    onIslandSelect?: (coordinates: [number, number], zoom?: number) => void
+    selectedId?: string;
+    onSelect?: (island: Island) => void;
 }
 
-export function AppSidebar({ onIslandSelect }: AppSidebarProps) {
-    const [searchQuery, setSearchQuery] = useState("")
+export function AppSidebar({ selectedId, onSelect }: AppSidebarProps) {
+    const [searchTerm, setSearchTerm] = useState("");
+    const [islands, setIslands] = useState<Island[]>([]);
 
-    // Filter islands based on search query
+    // Load islands data
+    useEffect(() => {
+        islandsPromise.then(data => setIslands(data));
+    }, []);
+
     const filteredIslands = islands.filter(island =>
-        searchQuery === "" ||
-        island.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        island.nameJp.includes(searchQuery) ||
-        island.group.toLowerCase().includes(searchQuery.toLowerCase())
-    )
+        searchTerm === "" ||
+        island.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        island.nameJp.includes(searchTerm) ||
+        island.group.toLowerCase().includes(searchTerm.toLowerCase())
+    );
 
     // Group filtered islands by their group property
     const groupedIslands = filteredIslands.reduce((acc, island) => {
@@ -34,7 +43,7 @@ export function AppSidebar({ onIslandSelect }: AppSidebarProps) {
         }
         acc[island.group].push(island)
         return acc
-    }, {} as Record<string, typeof islands>)
+    }, {} as Record<string, typeof filteredIslands>);
 
     const formatNumber = (num: number) => {
         if (num >= 1000) {
@@ -52,8 +61,8 @@ export function AppSidebar({ onIslandSelect }: AppSidebarProps) {
                 </div>
                 <SidebarInput
                     placeholder="Search islands..."
-                    value={searchQuery}
-                    onChange={(e) => setSearchQuery(e.target.value)}
+                    value={searchTerm}
+                    onChange={(e) => setSearchTerm(e.target.value)}
                     className="h-8"
                 />
             </SidebarHeader>
@@ -68,8 +77,9 @@ export function AppSidebar({ onIslandSelect }: AppSidebarProps) {
                                 {groupIslands.map((island) => (
                                     <a
                                         key={island.id}
-                                        className="flex flex-col gap-1 border-b p-3 text-sm leading-tight hover:bg-accent hover:text-accent-foreground cursor-pointer"
-                                        onClick={() => onIslandSelect?.(island.coordinates, island.zoom)}
+                                        className={`flex flex-col gap-1 border-b p-3 text-sm leading-tight hover:bg-accent hover:text-accent-foreground cursor-pointer ${selectedId === island.id ? "bg-accent" : ""
+                                            }`}
+                                        onClick={() => onSelect?.(island)}
                                     >
                                         <div className="flex items-center justify-between gap-2">
                                             <span className="font-medium">{island.name}</span>
