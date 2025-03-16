@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import { Map, Layers, Info, Menu, MapPin, Search, Square, Users, Compass } from "lucide-react"
+import { Map, Layers, Info, Menu, MapPin, Search, Square, Users, Compass, Star } from "lucide-react"
 
 import {
     Sidebar,
@@ -53,56 +53,59 @@ export function AppSidebar({ selectedId, onSelect }: AppSidebarProps) {
     }
 
     return (
-        <Sidebar>
-            <SidebarHeader className="gap-2 border-b border-border p-3">
+        <Sidebar className="bg-white">
+            <SidebarHeader className="gap-2 border-b border-border p-4 bg-white sticky top-0 z-10">
                 <div className="flex flex-col">
-                    <h2 className="text-base font-semibold">Shima Guni</h2>
-                    <p className="text-xs text-muted-foreground">Japanese Islands Explorer</p>
+                    <h2 className="text-lg font-semibold text-gray-900">Shima Guni</h2>
+                    <p className="text-sm text-gray-600">Japanese Islands Explorer</p>
                 </div>
                 <SidebarInput
                     placeholder="Search islands..."
                     value={searchTerm}
                     onChange={(e) => setSearchTerm(e.target.value)}
-                    className="h-8"
+                    className="h-10 bg-gray-50 hover:bg-white focus:bg-white transition-colors"
                 />
             </SidebarHeader>
             <SidebarContent>
                 <ScrollArea className="h-[calc(100vh-7rem)]">
                     {Object.entries(groupedIslands).map(([group, groupIslands]) => (
                         <SidebarGroup key={group} className="px-0">
-                            <SidebarGroupLabel className="px-4 py-1 text-xs font-medium text-muted-foreground">
+                            <SidebarGroupLabel className="px-4 py-2 text-sm font-semibold text-gray-700 bg-gray-50">
                                 {group}
                             </SidebarGroupLabel>
                             <SidebarGroupContent>
                                 {groupIslands.map((island) => (
-                                    <a
+                                    <button
                                         key={island.id}
-                                        className={`flex flex-col gap-1 border-b p-3 text-sm leading-tight hover:bg-accent hover:text-accent-foreground cursor-pointer ${selectedId === island.id ? "bg-accent" : ""
-                                            }`}
+                                        className={`w-full text-left flex flex-col gap-1.5 p-4 hover:bg-gray-50 cursor-pointer transition-all border-b border-gray-200`}
                                         onClick={() => onSelect?.(island)}
                                     >
-                                        <div className="flex items-center justify-between gap-2">
-                                            <span className="font-medium">{island.name}</span>
-                                            <span className="text-xs text-muted-foreground">{island.nameJp}</span>
-                                        </div>
-                                        <span className="text-xs text-muted-foreground">
-                                            {island.coordinates[0].toFixed(4)}°, {island.coordinates[1].toFixed(4)}°
-                                        </span>
-                                        <div className="flex items-center gap-3 pt-1 text-xs text-muted-foreground">
-                                            <div className="flex items-center gap-1">
-                                                <Square className="h-3 w-3" />
-                                                <span>{island.area}km²</span>
+                                        <div className="flex items-start justify-between gap-2">
+                                            <div className="flex flex-col gap-0.5">
+                                                <span className="font-medium text-gray-900 text-sm">{island.name}</span>
+                                                <span className="text-sm text-gray-600">{island.nameJp}</span>
                                             </div>
-                                            <div className="flex items-center gap-1">
-                                                <Users className="h-3 w-3" />
-                                                <span>{formatNumber(island.population)}</span>
-                                            </div>
-                                            <div className="flex items-center gap-1">
-                                                <Compass className="h-3 w-3" />
+                                            <div className={`flex items-center gap-1.5 px-2 py-1 rounded-full text-white text-xs font-medium
+                                                ${island.mainlandDistance <= 50 ? 'bg-emerald-500' :
+                                                    island.mainlandDistance <= 100 ? 'bg-blue-500' :
+                                                        island.mainlandDistance <= 200 ? 'bg-amber-500' :
+                                                            'bg-rose-500'}`}
+                                            >
+                                                <MapPin className="h-3 w-3" />
                                                 <span>{island.mainlandDistance}km</span>
                                             </div>
                                         </div>
-                                    </a>
+                                        <div className="flex items-center gap-4 pt-1 text-xs text-gray-600">
+                                            <div className="flex items-center gap-1.5">
+                                                <Square className="h-4 w-4" />
+                                                <span>{island.area}km²</span>
+                                            </div>
+                                            <div className="flex items-center gap-1.5">
+                                                <Users className="h-4 w-4" />
+                                                <span>{formatNumber(island.population)}</span>
+                                            </div>
+                                        </div>
+                                    </button>
                                 ))}
                             </SidebarGroupContent>
                         </SidebarGroup>

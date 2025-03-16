@@ -8,6 +8,7 @@ import type { Island } from "@/data/islands"
 import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
 import { AppSidebar } from "@/components/app-sidebar";
 import { CoordDisplay } from "@/components/coord-display";
+import { MapCrosshair } from '@/components/map-crosshair';
 
 function MapInteractionHandler({
     onCoordChange,
@@ -18,6 +19,7 @@ function MapInteractionHandler({
 }) {
     const map = useMap();
     const [lastCoords, setLastCoords] = useState<[number, number] | null>(null);
+    const [isDragging, setIsDragging] = useState(false);
 
     useMapEvents({
         mousemove: (e) => {
@@ -28,7 +30,9 @@ function MapInteractionHandler({
         mouseout: () => {
             setLastCoords(null);
             onCoordChange(null);
-        }
+        },
+        dragstart: () => setIsDragging(true),
+        dragend: () => setIsDragging(false)
     });
 
     // Handle map navigation when targetLocation changes
@@ -45,7 +49,7 @@ function MapInteractionHandler({
     useEffect(() => {
         const handleKeyPress = (e: KeyboardEvent) => {
             if (e.key.toLowerCase() === 'c' && lastCoords) {
-                const coordString = `${lastCoords[0].toFixed(4)}, ${lastCoords[1].toFixed(4)}`;
+                const coordString = `${lastCoords[0].toFixed(4)},${lastCoords[1].toFixed(4)}`;
                 navigator.clipboard.writeText(coordString).then(() => {
                     console.log('Coordinates copied:', coordString);
                 });
@@ -56,7 +60,7 @@ function MapInteractionHandler({
         return () => window.removeEventListener('keydown', handleKeyPress);
     }, [lastCoords]);
 
-    return null;
+    return <MapCrosshair isDragging={isDragging} />;
 }
 
 export function clientLoader() {
