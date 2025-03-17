@@ -1,17 +1,6 @@
 import { parse } from 'csv-parse/browser/esm/sync';
 
-export interface Island {
-    id: string;
-    name: string;
-    nameJp: string;
-    coordinates: [number, number];
-    group: string;
-    description?: string;
-    zoom?: number;
-    area: number; // km²
-    population: number;
-    mainlandDistance: number; // km
-}
+import type { Island } from '../api/types';
 
 // Import CSV as URL
 const csvUrl = new URL('./islands.csv', import.meta.url).href;
@@ -27,8 +16,8 @@ async function loadIslands(): Promise<Island[]> {
         cast: true
     });
 
-    return records.map((record: any) => ({
-        id: record.id,
+    return records.map((record: any, index: number) => ({
+        id: index,
         name: record.name,
         nameJp: record.native_name,
         coordinates: [Number(record.latitude), Number(record.longitude)],

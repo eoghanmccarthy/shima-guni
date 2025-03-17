@@ -8,7 +8,7 @@ iriomote,Iriomote,西表島,24.3377,123.8207,Yaeyama Islands,Jungle island home 
 sado,Sado,佐渡島,38.0513,138.3989,Niigata Islands,Historic gold mines and traditional performing arts,10,855.26,51000,45
 ojika,Ojika,小値賀島,33.1917,129.0550,Goto Islands,Preserved traditional Japanese landscape and architecture,13,13.31,2100,73
 itsukushima,Itsukushima,宮島,34.2711,132.3083,Seto Inland Sea,Famous for its floating torii gate and wild deer,13,30.39,1600,2
-shimojishima,Shimojishima,下地島,24.8294,125.1825,Miyako Islands,Known for its perfect circular airport and blue caves,13,9.54,1400,980
+shimojishima,Shimojishima,下地島,24.8198,125.1556,Miyako Islands,Known for its perfect circular airport and blue caves,14,9.54,1400,980
 hachijojima,Hachijojima,八丈島,33.1007,139.8051,Izu Islands,Tropical paradise with hot springs and diving spots,12,69.11,7200,287
 koshikijima,Koshikijima,甑島,31.8353,129.8853,Kagoshima Islands,Three connected islands with dramatic coastal scenery,12,116.98,4300,32
 ogijima,Ogijima,男木島,34.4256,134.0604,Seto Inland Sea,Small artistic island with maze-like village streets,15,1.36,150,4
@@ -34,7 +34,7 @@ innoshima,Innoshima,因島,34.3175,133.1744,Seto Inland Sea,Former shipbuilding 
 mukaishima,Mukaishima,向島,34.3847,133.2024,Seto Inland Sea,Known for shipbuilding and citrus,14,22.35,18000,1
 ikuchijima,Ikuchijima,生口島,34.2879,133.1079,Seto Inland Sea,Famous for Kosanji Temple and citrus,13,32.65,7200,4
 omishima,Omishima,大三島,34.2449,133.0151,Seto Inland Sea,Home to important Oyamazumi Shrine,13,43.32,5500,3
-osaki-shimojima,Osaki-Shimojima,大崎下島,34.2318,132.8903,Seto Inland Sea,Known for its citrus orchards and historical salt production,13,37.79,6500,2
+osaki-shimojima,Osaki-Shimojima,大崎下島,34.2420,132.8941,Seto Inland Sea,Known for its citrus orchards and historical salt production,13,37.79,6500,2
 rishiri,Rishiri,利尻島,45.1782,141.2395,Hokkaido Islands,Cone-shaped volcanic island known as the Mount Fuji of the Sea,12,182.1,4800,19
 rebun,Rebun,礼文島,45.3683,141.0246,Hokkaido Islands,Famous for unique alpine flowers and hiking trails,12,81.3,2600,23
 okushiri,Okushiri,奥尻島,42.1520,139.4677,Hokkaido Islands,Known for seafood and recovered from 1993 tsunami,12,142.9,2800,16
@@ -60,11 +60,42 @@ fukaji,Fukaji,外地島,26.1683,127.2927,Kerama Islands,Small inhabited island n
 yakabi,Yakabi,屋嘉比島,26.2159,127.2443,Kerama Islands,Uninhabited island with pristine beaches,15,1.37,0,42
 amuro,Amuro,阿室島,26.2076,127.3123,Kerama Islands,Scenic uninhabited islet with coral reefs,15,0.31,0,43
 kuba,Kuba,久場島,26.1716,127.2381,Kerama Islands,Uninhabited island with dramatic cliffs,15,0.68,0,44
-gishi,Gishi,儀志布島,26.1564,127.2922,Kerama Islands,Small uninhabited island with rare birds,15,0.56,0,41
-oshima-imabari,Oshima,大島,34.2033,132.9544,Seto Inland Sea,Bridge-connected island with citrus farms and hiking trails,14,13.23,2400,1
+gishi,Gishi,儀志布島,26.1681,127.2931,Kerama Islands,Small uninhabited island with rare birds,15,0.56,0,41
+oshima-imabari,Oshima,大島,34.1524,133.0601,Seto Inland Sea,Bridge-connected island with citrus farms and hiking trails,14,13.23,2400,1
 hakatajima,Hakatajima,伯方島,34.2149,133.0954,Seto Inland Sea,Famous for salt production and Hakata salt soft serve,13,20.86,5200,2
 kashima-ehime,Kashima,鹿島,33.9742,132.7642,Seto Inland Sea,Small island with ancient shrine and wild deer,15,1.37,50,1
 yugejima,Yugejima,弓削島,34.2654,133.2146,Seto Inland Sea,Historic shipbuilding island with maritime school,14,10.32,3100,5
 hitsuishijima,Hitsuishijima,櫃石島,34.4211,133.8042,Seto Inland Sea,Quiet island known for stone quarrying history,14,3.58,180,10
 teshima-tonosho,Teshima,豊島,34.4810,134.0756,Seto Inland Sea,Historic fishing village with traditional houses,14,2.93,120,7
 yoshima,Yoshima,与島,34.3891,133.8186,Seto Inland Sea,Bridge-connected island with great bridge views,14,2.38,150,2
+tsushima,Tsushima,対馬,34.4160,129.3338,Tsushima Islands,Large strategic island between Japan and Korea with ancient shrines,10,708.7,31000,50
+tanegashima,Tanegashima,種子島,30.5895,130.9879,Osumi Islands,Home to Japan's space center and historic gun-making,11,444.99,33000,115
+tokunoshima,Tokunoshima,徳之島,27.7771,128.9551,Amami Islands,Known for bull fighting and traditional culture,12,247.77,27000,530
+yoronjima,Yoronjima,与論島,27.0425,128.4319,Amami Islands,Tropical island with coral reefs and white beaches,13,20.8,5300,563
+okinoerabujima,Okinoerabujima,沖永良部島,27.3870,128.6142,Amami Islands,Famous for its extensive limestone caves,12,93.63,13000,541
+kikaijima,Kikaijima,喜界島,28.3264,129.9786,Amami Islands,Coral island known for sugar cane cultivation,12,56.93,8000,390
+amami-oshima,Amami Oshima,奄美大島,28.2983,129.4107,Amami Islands,Largest Amami island with unique wildlife,11,712.35,73000,380
+kumejima,Kumejima,久米島,26.3442,126.7819,Okinawa Islands,Famous for deep sea water industries and beaches,12,63.50,8000,100
+irabujima,Irabujima,伊良部島,24.8316,125.1894,Miyako Islands,Connected to Miyako by bridge with scenic spots,13,11.67,5500,970
+miyakojima,Miyakojima,宮古島,24.7917,125.3300,Miyako Islands,Known for beautiful beaches and marine activities,11,158.70,55000,950
+ishigakijima,Ishigakijima,石垣島,24.4722,124.2307,Yaeyama Islands,Main island of Yaeyama with coral reefs,11,222.6,47000,1190
+haterumajima,Haterumajima,波照間島,24.0582,123.7843,Yaeyama Islands,Japan's southernmost inhabited island,13,12.77,500,1250
+yonagunijima,Yonagunijima,与那国島,24.4562,122.9906,Yaeyama Islands,Japan's westernmost point with underwater ruins,12,28.88,1700,2000
+enoshima,Enoshima,江の島,35.2998,139.4809,Sagami Bay,Popular daytrip island with shrines and caves,14,0.38,400,1
+sarushima,Sarushima,猿島,35.2858,139.6942,Tokyo Bay,Only natural island in Tokyo Bay with fortress ruins,16,0.55,0,1
+jogashima,Jogashima,城ヶ島,35.1335,139.6204,Sagami Bay,Connected by bridge with dramatic cliffs,15,1.55,200,1
+kozushima,Kozushima,神津島,34.2144,139.1516,Izu Islands,Volcanic island with obsidian deposits,13,18.87,1900,170
+miyakejima,Miyakejima,三宅島,34.0800,139.5267,Izu Islands,Active volcano island with unique ecology,12,55.50,2800,180
+shikinejima,Shikinejima,式根島,34.3267,139.2167,Izu Islands,Known for open-air hot springs by the sea,14,3.90,550,160
+niijima,Niijima,新島,34.3800,139.2670,Izu Islands,Popular for surfing and white sandy beaches,13,23.87,3000,163
+oshima-tokyo,Oshima,大島,34.7244,139.4058,Izu Islands,Large volcanic island with active Mt. Mihara,11,91.06,8200,120
+genkaijima,Genkaijima,玄界島,33.6889,130.2319,Fukuoka Islands,Small fishing island with traditional culture,15,0.96,230,10
+nokonoshima,Nokonoshima,能古島,33.6208,130.3055,Fukuoka Islands,Park island famous for seasonal flowers,14,3.13,800,3
+shikanoshima,Shikanoshima,志賀島,33.6725,130.3012,Fukuoka Islands,Historic island where gold seal was found,14,5.69,3000,1
+himeshima,Himeshima,姫島,33.7273,131.6655,Oita Islands,Known for kuruma prawn farming,14,7.14,2000,2
+iki,Iki,壱岐,33.7894,129.7186,Tsushima Islands,Historic island with ancient burial mounds,11,138.46,27000,20
+fukuejima,Fukuejima,福江島,32.6850,128.7460,Goto Islands,Largest Goto island with Christian heritage,11,326.95,37000,100
+nakadori,Nakadori,中通島,33.0081,129.0845,Goto Islands,Second largest Goto island with hidden churches,11,168.17,21000,85
+wakamatsu,Wakamatsu,若松島,32.8910,128.9975,Goto Islands,Historic island with Christian churches,13,35.77,4000,90
+nozakijima,Nozakijima,野崎島,33.1867,129.1280,Goto Islands,Uninhabited island with abandoned village,14,7.58,0,95
+ukushima,Ukushima,宇久島,33.2716,129.1160,Goto Islands,Remote island with preserved traditions,13,24.93,2600,60

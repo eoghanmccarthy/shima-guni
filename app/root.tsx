@@ -6,9 +6,21 @@ import {
     Scripts,
     ScrollRestoration,
 } from "react-router";
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 
 import type { Route } from "./+types/root";
+
 import "./styles.css";
+
+// Create a client
+const queryClient = new QueryClient({
+    defaultOptions: {
+        queries: {
+            staleTime: 1000 * 60 * 5, // 5 minutes
+            gcTime: 1000 * 60 * 60, // 1 hour
+        },
+    },
+})
 
 export function Layout({ children }: { children: React.ReactNode }) {
     return (
@@ -20,7 +32,9 @@ export function Layout({ children }: { children: React.ReactNode }) {
                 <Links />
             </head>
             <body>
-                {children}
+                <QueryClientProvider client={queryClient}>
+                    {children}
+                </QueryClientProvider>
                 <ScrollRestoration />
                 <Scripts />
             </body>
