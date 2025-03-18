@@ -6,8 +6,6 @@ import type { Route } from "./+types/home";
 
 import type { Island } from "@/api/types"
 
-import { useIslands } from "@/api/queries"
-
 import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
 import { AppSidebar } from "@/components/app-sidebar";
 import { CoordDisplay } from "@/components/coord-display";
@@ -81,11 +79,8 @@ export default function Home({ loaderData }: Route.ComponentProps) {
     } | null>(null);
     const [mouseCoords, setMouseCoords] = useState<[number, number] | null>(null);
 
-    const { data: islands, isLoading, error } = useIslands();
-    console.log("islands", islands);
-
     const handleIslandSelect = useCallback((island: Island) => {
-        setSelectedLocation({ coordinates: island.coordinates, zoom: island.zoom || INITIAL_ZOOM });
+        setSelectedLocation({ coordinates: [island.latitude, island.longitude], zoom: island.zoom || INITIAL_ZOOM });
     }, []);
 
     return (

@@ -1,7 +1,7 @@
 export interface Island {
     id: string;
     name: string;
-    nativeName: string;
+    native_name: string;
     latitude: number;
     longitude: number;
     group: string;
@@ -9,7 +9,7 @@ export interface Island {
     zoom: number;
     area: number;
     population: number;
-    mainlandDistance: number;
+    mainland_distance: number;
 }
 
 export interface ApiResponse<T> {

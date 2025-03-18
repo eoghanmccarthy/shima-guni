@@ -19,14 +19,15 @@ async function loadIslands(): Promise<Island[]> {
     return records.map((record: any, index: number) => ({
         id: index,
         name: record.name,
-        nameJp: record.native_name,
-        coordinates: [Number(record.latitude), Number(record.longitude)],
+        native_name: record.native_name,
+        latitude: Number(record.latitude),
+        longitude: Number(record.longitude),
         group: record.group,
         description: record.description,
         zoom: record.zoom ? Number(record.zoom) : undefined,
         area: Number(record.area),
         population: Number(record.population),
-        mainlandDistance: Number(record.mainland_distance)
+        mainland_distance: Number(record.mainland_distance)
     }));
 }
 

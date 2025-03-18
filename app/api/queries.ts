@@ -1,4 +1,4 @@
-import { useQuery } from '@tanstack/react-query';
+import { queryOptions } from '@tanstack/react-query';
 
 import { supabase } from '@/lib/supabase'; // Your Supabase client initialization
 import type { Island } from './types';
@@ -7,20 +7,33 @@ export const islandKeys = {
     all: ['islands'] as const,
     lists: () => [...islandKeys.all, 'list'] as const,
     list: (filters: Record<string, unknown>) => [...islandKeys.lists(), { filters }] as const,
-    details: () => [...islandKeys.all, 'detail'] as const,
-    detail: (id: string) => [...islandKeys.details(), id] as const,
 };
 
-export function useIslands(filters?: Record<string, unknown>) {
-    console.log("filters", filters);
-    return useQuery({
-        queryKey: islandKeys.list(filters ?? {}),
-        queryFn: async () => {
-            const { data, error } = await supabase.from('islands').select('*');
-            console.log("data", data);
+export const getIslandsQueryOptions = (filters?: Record<string, unknown>, options = {}) => queryOptions({
+    queryKey: islandKeys.list(filters ?? {}),
+    queryFn: async () => {
+        let query = supabase
+            .from('islands')
+            .select(`
+                    *,
+                    island_groups(id, name)
+                `);
 
-            if (error) throw error;
-            return data;
+        // Apply search filter if provided
+        if (filters?.searchTerm && typeof filters.searchTerm === 'string') {
+            query = query.ilike('name', `%${filters.searchTerm}%`);
         }
-    });
-}
+
+        const { data, error } = await query;
+
+
+        if (error) throw error;
+
+        return data.map(island => ({
+            ...island,
+            group: island.island_groups?.name,
+            island_groups: undefined  // Remove original nested object
+        }));
+    },
+    ...options
+});
